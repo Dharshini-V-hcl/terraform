@@ -10,7 +10,7 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "main" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = "10.0.1.0/24"
-  availability_zone       = "us-west-2a"  # Specify your desired AZ
+  availability_zone       = "us-east-1" 
   map_public_ip_on_launch = true
 }
 
@@ -33,10 +33,10 @@ resource "aws_s3_bucket" "example" {
 }
 # EC2 Instance Resource
 resource "aws_instance" "example" {
-  ami           = "ami-0c55b159cbfafe1f0"  # Replace with your preferred AMI ID
-  instance_type = "t2.micro"  # Specify your desired instance type
+  ami           = "ami-01816d07b1128cd2d"
+  instance_type = "t2.micro"  
 
   tags = {
-    Name = "Example EC2"
+    Name = "Example Ec2"
   }
 }
