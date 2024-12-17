@@ -55,4 +55,3 @@ resource "aws_instance" "example" {
     Name = "Example EC2"
   }
 }
-
