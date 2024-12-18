@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+      - staging
+      - development
 
 jobs:
   terraform:
@@ -27,6 +29,9 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+      - name: Select/Create Workspace
+        run: |
+          terraform workspace select ${{ github.ref_name }} || terraform workspace new ${{ github.ref_name }}
         
       - name: Terraform Plan
         run: terraform plan -out=tfplan
